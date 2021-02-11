@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://back.jpg" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://player/png/Attack__008.png" type="Texture" id=41]
 [ext_resource path="res://player/png/Attack__009.png" type="Texture" id=42]
 [ext_resource path="res://grama.tres" type="TileSet" id=43]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Monster.gd" type="Script" id=45]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -68,13 +70,15 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 31, 45 )
+extents = Vector2( 31, 48.5012 )
 
 [node name="World" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 1024, 520 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -88,7 +92,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( 0.933105, 0.933105 )
-scale = Vector2( 0.176308, 0.209607 )
+scale = Vector2( 0.149, 0.162 )
 frames = SubResource( 2 )
 animation = "Run"
 frame = 1
@@ -97,13 +101,15 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 1.41838, 2.52641 )
+position = Vector2( 0.5, 0 )
+scale = Vector2( 0.711, 0.75 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
 position = Vector2( 0.124878, 9.06099 )
 current = true
 limit_top = 0
@@ -117,4 +123,8 @@ tile_set = ExtResource( 43 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 327709, 1, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 327723, 0, 0, 327724, 1, 0, 327725, 1, 0, 327726, 1, 0, 327727, 1, 0, 327728, 1, 0, 327729, 1, 0, 327730, 1, 0, 327731, 1, 0, 327732, 2, 0, 327733, 2, 0, 458753, 0, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 2, 0, 589844, 0, 0, 589845, 0, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 2, 0, 589853, 2, 0, 720931, 0, 0, 720932, 1, 0, 720933, 1, 0, 720934, 1, 0, 720935, 1, 0, 720936, 1, 0, 720937, 1, 0, 720938, 2, 0, 851972, 0, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 2, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 983069, 1, 0, 983070, 1, 0, 983071, 1, 0 )
+
+[node name="Monster" parent="." instance=ExtResource( 44 )]
+position = Vector2( 896, 110 )
+script = ExtResource( 45 )
 

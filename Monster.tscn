@@ -1,0 +1,43 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://zombiefiles/png/male/Walk (1).png" type="Texture" id=1]
+[ext_resource path="res://zombiefiles/png/male/Walk (2).png" type="Texture" id=2]
+[ext_resource path="res://zombiefiles/png/male/Walk (3).png" type="Texture" id=3]
+[ext_resource path="res://zombiefiles/png/male/Walk (4).png" type="Texture" id=4]
+[ext_resource path="res://zombiefiles/png/male/Walk (5).png" type="Texture" id=5]
+[ext_resource path="res://zombiefiles/png/male/Walk (6).png" type="Texture" id=6]
+[ext_resource path="res://zombiefiles/png/male/Walk (7).png" type="Texture" id=7]
+[ext_resource path="res://zombiefiles/png/male/Walk (8).png" type="Texture" id=8]
+[ext_resource path="res://zombiefiles/png/male/Walk (9).png" type="Texture" id=9]
+[ext_resource path="res://zombiefiles/png/male/Walk (10).png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 32.0
+height = 48.106
+
+[node name="Monster" type="StaticBody2D"]
+position = Vector2( 32, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 128, 9.95 )
+scale = Vector2( 0.148837, 0.161657 )
+frames = SubResource( 1 )
+animation = "walk"
+frame = 5
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2( 128, 15 )
+scale = Vector2( 0.711, 0.6 )
+shape = SubResource( 2 )
+
