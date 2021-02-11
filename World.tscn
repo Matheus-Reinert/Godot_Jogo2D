@@ -1,34 +1,100 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://grama.tres" type="TileSet" id=3]
+[ext_resource path="res://player/png/Idle__000.png" type="Texture" id=2]
+[ext_resource path="res://player/png/Idle__001.png" type="Texture" id=3]
+[ext_resource path="res://player/png/Idle__002.png" type="Texture" id=4]
+[ext_resource path="res://player/png/Idle__003.png" type="Texture" id=5]
+[ext_resource path="res://player/png/Idle__004.png" type="Texture" id=6]
+[ext_resource path="res://player/png/Idle__005.png" type="Texture" id=7]
+[ext_resource path="res://player/png/Idle__006.png" type="Texture" id=8]
+[ext_resource path="res://player/png/Idle__007.png" type="Texture" id=9]
+[ext_resource path="res://player/png/Idle__008.png" type="Texture" id=10]
+[ext_resource path="res://player/png/Idle__009.png" type="Texture" id=11]
+[ext_resource path="res://player/png/Run__000.png" type="Texture" id=12]
+[ext_resource path="res://player/png/Run__001.png" type="Texture" id=13]
+[ext_resource path="res://player/png/Run__002.png" type="Texture" id=14]
+[ext_resource path="res://player/png/Run__003.png" type="Texture" id=15]
+[ext_resource path="res://player/png/Run__004.png" type="Texture" id=16]
+[ext_resource path="res://player/png/Run__005.png" type="Texture" id=17]
+[ext_resource path="res://player/png/Run__006.png" type="Texture" id=18]
+[ext_resource path="res://player/png/Run__007.png" type="Texture" id=19]
+[ext_resource path="res://player/png/Run__008.png" type="Texture" id=20]
+[ext_resource path="res://player/png/Run__009.png" type="Texture" id=21]
+[ext_resource path="res://player/png/Jump__000.png" type="Texture" id=22]
+[ext_resource path="res://player/png/Jump__001.png" type="Texture" id=23]
+[ext_resource path="res://player/png/Jump__002.png" type="Texture" id=24]
+[ext_resource path="res://player/png/Jump__003.png" type="Texture" id=25]
+[ext_resource path="res://player/png/Jump__004.png" type="Texture" id=26]
+[ext_resource path="res://player/png/Jump__005.png" type="Texture" id=27]
+[ext_resource path="res://player/png/Jump__006.png" type="Texture" id=28]
+[ext_resource path="res://player/png/Jump__007.png" type="Texture" id=29]
+[ext_resource path="res://player/png/Jump__008.png" type="Texture" id=30]
+[ext_resource path="res://player/png/Jump__009.png" type="Texture" id=31]
+[ext_resource path="res://player/png/Attack__000.png" type="Texture" id=32]
+[ext_resource path="res://player/png/Attack__001.png" type="Texture" id=33]
+[ext_resource path="res://player/png/Attack__002.png" type="Texture" id=34]
+[ext_resource path="res://player/png/Attack__003.png" type="Texture" id=35]
+[ext_resource path="res://player/png/Attack__004.png" type="Texture" id=36]
+[ext_resource path="res://player/png/Attack__005.png" type="Texture" id=37]
+[ext_resource path="res://player/png/Attack__006.png" type="Texture" id=38]
+[ext_resource path="res://player/png/Attack__007.png" type="Texture" id=39]
+[ext_resource path="res://player/png/Attack__008.png" type="Texture" id=40]
+[ext_resource path="res://player/png/Attack__009.png" type="Texture" id=41]
+[ext_resource path="res://grama.tres" type="TileSet" id=42]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Run",
+"speed": 50.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 31, 45 )
 
 [node name="World" type="Node"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 480, 225.166 )
+position = Vector2( 320, 160 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite" type="Sprite" parent="Player"]
-position = Vector2( 0, -1.16638 )
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Sprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 192, 192 )
+scale = Vector2( 0.176308, 0.209607 )
+frames = SubResource( 2 )
+animation = "Run"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
+position = Vector2( 192, 192 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+position = Vector2( 128, 224 )
+current = true
+smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 42 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 196618, 0, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 196625, 2, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 851972, 0, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 2, 0 )
+tile_data = PoolIntArray( 327709, 1, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 327723, 0, 0, 327724, 1, 0, 327725, 1, 0, 327726, 1, 0, 327727, 1, 0, 327728, 1, 0, 327729, 1, 0, 327730, 1, 0, 327731, 1, 0, 327732, 2, 0, 589845, 0, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 2, 0, 851972, 0, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 2, 0 )
 
